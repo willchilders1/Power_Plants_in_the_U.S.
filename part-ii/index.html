@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset=utf-8 />
+  <title>Lesson 07 Template</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+  <style>
+    header,
+    section,
+    footer {
+      width: 80%;
+      margin: 10px auto;
+    }
+
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #9b9a9a;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+      color: #202020;
+      font-size: 100%;
+    }
+
+    header,
+    section,
+    footer {
+      width: 80%;
+      margin: 10px auto;
+    }
+
+    h1,
+    h2,
+    p,
+    ul {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-decoration: underline;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2em;
+      font-weight: 500;
+
+      letter-spacing: .04em;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.5em;
+      font-weight: 100;
+
+    }
+
+    a {
+      color: #0012b8;
+      font-weight: normal;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+
+    hr {
+      margin: 20px 0;
+      border: 0;
+      height: 1px;
+      background: #d3d3d3;
+    }
+
+    .caption {
+      margin: 0 0 20px 0;
+      display: block;
+    }
+
+    #map {
+      width: 100%;
+      height: 540px;
+      margin: 10px auto;
+      border: 4px solid #1f1f1f;
+    }
+
+    .highlight {
+      color: #1a6602;
+      font-weight: bold;
+    }
+
+    .img-fill {
+      width: 100%;
+      height: auto;
+      margin: 10px 0;
+    }
+
+    /* Use float property to make two-column layout */
+    .first-column {
+      float: left;
+      width: 49%;
+      padding-right: 2%;
+    }
+
+    .second-column {
+      float: left;
+      width: 49%;
+    }
+
+    /* Clear floats after columns */
+    .row::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    @media screen and (max-width: 900px) {
+
+      .first-column,
+      .second-column {
+        width: 100%;
+      }
+    }
+
+    img {
+      margin: 10px auto;
+      border: 4px solid #1f1f1f;
+    }
+
+    /* #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    } */
+
+    .leaflet-popup {
+      position: absolute;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .leaflet-popup-content h3,
+    .leaflet-popup-content p,
+    .leaflet-popup-content h4 {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .leaflet-popup-content h3 {
+
+      font-size: 1.3em;
+      margin-bottom: 3px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .leaflet-popup-content h4 {
+      text-align: center;
+      font-weight: bold;
+    }
+
+
+    .leaflet-popup-content p {
+      margin: 2px 0 4px;
+      font-size: 1.3em;
+      text-align: center;
+    }
+
+    /* .leaflet-tooltip {
+
+    } */
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Solar, Wind, and Hydroelectric Power</h1>
+  </header>
+  <section>
+    <div id="map"></div>
+    <!-- Start row -->
+    <div class="row">
+
+      <!-- Start left column -->
+      <div class="first-column">
+        <h2>Power Plants in the United States</h2>
+        <p>This map represents Solar, Wind, and Hydroelectric energy plants across the United States. Natural gas and
+          coal still provide the second and third largest
+          fuel sources in the country respectively, following oil. Even so, the Grand Coulee Dam in Washington State is
+          the largest energy producer in the country,
+          providing almost 8,000 Megawatts of power to the surrounding arounding area.</p>
+        <ul>
+          <li>See my projects on GitHub: <a href="https://github.com/willchilders1">My Github</a></li>
+          <li>Email Me: <a href="mailto:WSCH224@uky.edu">Will Childers</a></li>
+        </ul>
+
+        <!-- End first column -->
+      </div>
+
+      <!-- Start right column -->
+      <div class="second-column">
+        <img src="https://travelnevada.com/wp-content/uploads/2020/04/lass-id-original-1531421322-5b47a28a510bc.jpg"
+          alt="Fanueil Hall" class="img-fill">
+        <div class="caption">
+          Hoover dam: <a href="https://travelnevada.com/historical-interests/hoover-dam/">Photo
+            provided by TravelNevada</a>
+        </div>
+        <!-- End right column -->
+      </div>
+
+      <!-- End row column -->
+    </div>
+
+  </section>
+  <footer>
+    <a href="https://newmapsplus.github.io">
+      <img src="https://newmapsplus.github.io/assets/graphics/logo-2018-nmp-75px-h-gray.png"
+        alt="University of Kentucky New Maps Plus">
+    </a>
+
+    <a href="https://uky-gis.github.io">
+      <img src="https://newmapsplus.github.io/assets/graphics/logo-2018-geography-75px-h.png"
+        alt="University of Kentucky Department of Geography">
+    </a> </footer>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+  <script src="data/power-plants.js"></script>
+  <script>
+    // map options
+    var map = L.map('map', {
+      center: [36, -94],
+      zoom: 4,
+    });
+    // console.log(plants);
+    // L.geoJson(plants).addTo(map);
+    var commonStyles = {
+      weight: 1,
+      stroke: 1,
+      fillOpacity: .8
+    }
+
+    var hydroLayer = L.geoJson(plants, {
+      pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, commonStyles);
+      },
+      filter: function (feature) {
+        if (feature.properties.fuel_source.Hydro) {
+          return feature;
+
+        }
+      },
+      style: function (feature) {
+        return {
+          color: '#1f78b4',
+          fillColor: '#1f78b4',
+          radius: getRadius(feature.properties.fuel_source.Hydro)
+        }
+      },
+      onEachFeature: function (feature, layer) {
+
+        var popup = `<h3>${feature.properties.plant_name}</h3>
+             <h4>Total Output: </h4><p>${feature.properties.capacity_mw} MW</p>`
+          for (var fuel in feature.properties.fuel_source) {
+            var fuelObject = feature.properties.fuel_source
+            console.log(feature.properties.fuel_source, fuel, fuelObject[fuel])
+            popup += `<br>Source: ${fuel}, ${fuelObject[fuel]} MW`
+          };
+          layer.bindTooltip(popup);
+          layer.bindPopup(popup);
+
+        layer.on('mouseover', function () {
+          
+          // var hydroPopup = `<h3>${feature.properties.plant_name}</h3>
+          //    <p><b>Total Output: </b>${feature.properties.capacity_mw} MW</p>
+          //    <p><b>Hydro: </b> ${feature.properties.fuel_source.Hydro} MW </p>
+          //    <p>Wind</p>`
+          // //  if (layer == feature.properties.fuel_source.Wind){
+          // //    return hydroPopup;
+          // //  }
+          // // TRIED THE CODE BELOW, DID NOT WORK TO ADD MULTIPLE FUEL SOURCES
+          // if (feature.properties.fuel_source.Wind) {
+          //   return {
+          //     bindTooltip(hydroPopup);
+          //     // bindPopup(hydroPopup);
+          //   }
+          // } else {
+          //   return bindtoolTip(popup);
+          // };
+
+          // layer.bindTooltip(layer.feature.properties.plant_name);
+          layer.setStyle({
+            color: '#00ced1',
+            fillColor: '#00ced1'
+          });
+        });
+        layer.on('mouseout', function () {
+          // layer.closePopup(popup);
+          layer.setStyle({
+            color: '#1f78b4',
+            fillColor: '#1f78b4'
+          });
+        });
+      }
+    }).addTo(map);
+
+    var ngLayer = L.geoJson(plants, {
+      pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, commonStyles);
+      },
+      filter: function (feature) {
+        if (feature.properties.fuel_source['Natural Gas']) {
+          return feature;
+        }
+      },
+      style: function (feature) {
+        return {
+          color: '#918151',
+          fillColor: '#918151',
+          radius: getRadius(feature.properties.fuel_source['Natural Gas'])
+        }
+      },
+      onEachFeature: function (feature, layer) {
+
+        layer.on('mouseover', function () {
+          var popup = `<h3>${feature.properties.plant_name}</h3>
+             <h4>Total Output: </h4><p>${feature.properties.capacity_mw} MW</p>
+             <h4>Natural Gas: </h4><p> ${feature.properties.fuel_source['Natural Gas']} MW </p>`;
+          layer.bindTooltip(popup);
+          layer.bindPopup(popup);
+          // layer.bindTooltip(layer.feature.properties.plant_name);
+          layer.setStyle({
+            color: '#79443b',
+            fillColor: '#79443b'
+          });
+        });
+        layer.on('mouseout', function () {
+          layer.setStyle({
+            color: '#918151',
+            fillColor: '#918151'
+          });
+        });
+      }
+    }).addTo(map);
+
+    var solarLayer = L.geoJson(plants, {
+      pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, commonStyles);
+      },
+      filter: function (feature) {
+        if (feature.properties.fuel_source.Solar) {
+          return feature;
+        }
+      },
+      style: function (feature) {
+        return {
+          color: '#ffff99',
+          // fillColor: '#e97451',
+          radius: getRadius(feature.properties.fuel_source.Solar)
+        }
+      },
+      onEachFeature: function (feature, layer) {
+
+
+        layer.on('mouseover', function () {
+          var popup = `<h3>${feature.properties.plant_name}</h3>
+             <h4>Total Output: </h4><p>${feature.properties.capacity_mw} MW</p>
+             <h4>Solar: </h4><p> ${feature.properties.fuel_source.Solar} MW </p>`;
+          layer.bindPopup(popup);
+          layer.bindTooltip(popup);
+          layer.setStyle({
+            color: '#e97451',
+            fillColor: '#e97451'
+          });
+        });
+        layer.on('mouseout', function () {
+          layer.setStyle({
+            color: '#ffff99',
+            fillColor: '#ffff99'
+          });
+        });
+      }
+    }).addTo(map);
+    // var plantIcon = L.icon({
+    //   iconUrl: 'images/noun_2071.svg',
+    //   iconSize: [40, 40],
+    // });
+    // var coalIcon = L.icon({
+    //   iconUrl: 'images/noun_2071.svg',
+    //   iconSize: [30, 30]
+    // });
+    // var windIcon = L.icon({
+    //   iconUrl: 'images/noun_2076.svg',
+    //   iconSize: [30, 30]
+    // });
+    // plants.features.sort(function (a, b) {
+    //   return b.properties.capacity_mw - a.properties.capacity_mw;
+    // });
+    // L.geoJson(plants, {
+    //   pointToLayer: function (feature, latlng) {
+    //     return L.circleMarker(latlng, {
+    //       color: 'orange',
+    //       weight: 1,
+    //       fillColor: 'yellow',
+    //       fillOpacity: .8,
+    //       radius: getRadius(feature.properties.capacity_mw)
+    //     });
+    //   },
+    //   onEachFeature: function (feature, layer) {
+    //     // if (feature.properties.fuel_source.Coal) {
+    //     //   layer.setStyle({
+    //     //     fillColor: 'red',
+    //     //     radius: getRadius(feature.properties.fuel_source.Coal)
+    //     //   });
+    //     // } else if (feature.properties.fuel_source.Hydro) {
+    //     //   layer.setStyle({
+    //     //     fillColor: 'blue',
+    //     //     radius: getRadius(feature.properties.fuel_source.Hydro)
+    //     //   });
+    //     // }
+    //     layer.bindTooltip(layer.feature.properties.plant_name);
+    //     layer.on('mouseover', function () {
+    //       layer.setStyle({
+    //         fillColor: 'red'
+    //       });
+    //     });
+    //     layer.on('mouseout', function () {
+    //       layer.setStyle({
+    //         fillColor: 'yellow'
+    //       });
+    //     });
+    //   }
+    // addTo(map);
+
+    // Leaflet providers base map URL
+    var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    });
+
+    function getRadius(area) {
+      var radius = Math.sqrt(area / Math.PI);
+      return radius * .6;
+    }
+    tiles.addTo(map);
+  </script>
+
+</body>
+
+</html>
